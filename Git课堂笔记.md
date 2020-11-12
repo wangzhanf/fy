@@ -222,3 +222,47 @@ git创建本地仓库：   git   init
 3	参与成员克隆项目修改后发出 pull   request  请求
 
 4	仓库的作者可以选择性接受来自外部的  pull  request
+
+
+
+## 上课回顾
+
+多人协作：
+
+团队内部--》（仓库）授予【邀请】团队成员加入--》同意（完全操作）
+
+外部合作---》仓库公开-----》  fork----》修改------》pull  reqeust
+
+
+
+# 远程仓库
+
+传统的项目创建的流程
+
+1	先在本地创建git版本库
+
+​	创建一个目录（工作区）     涉及到的基本命令   pwd  cd    ls    mkdir   rm
+
+​	创建暂存区和版本库（.git）	           git init
+
+2	提交到本地版本库
+
+​		git add
+
+​		git  commit
+
+3	推送到远程仓库
+
+​		创建一个远程仓库     git@github.com:wangzhanf/newtest.git
+
+​		配置远程服务器以及分支
+
+​			 git remote add orign git@github.com:wangzhanf/newtest.git
+
+​		推送
+
+​				第一推送时需要：git push --set-upstream orign master
+
+​				以后推送：   git push orign
+
+​			
