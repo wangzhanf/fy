@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>仿w3c的布局</title>
+    <!--    内联式的css样式-->
+    <!--    <style type="text/css">-->
+    <!--        * {-->
+    <!--            font-size: 18pt;-->
+    <!--        }-->
+    <!--    </style>-->
+<!--    外联式css样式-->
+    <link href="css/mystyle.css" rel="stylesheet" />
+</head>
+<body>
+<!--
+    1、导航栏应该是页面顶部(header)的元素，优先选择使用nav标签
+
+-->
+<!--页面头部-->
+<header>
+    <!--    导航栏-->
+    <nav>
+        <img src="img/logonew2.png"/>
+        <ul>
+            <li><a href="#">菜单</a></li>
+            <li><a href="#">菜单</a></li>
+            <li><a href="#">菜单</a></li>
+            <li><a href="#">菜单</a></li>
+            <li><a href="#">菜单</a></li>
+            <li><a href="#">菜单</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!--侧边栏-->
+<aside>
+    <!--    使用无序列表组织有规律的数据展示-->
+    <ul>
+        <li><a href="#">内容1</a></li>
+        <li><a href="#">内容2</a></li>
+        <li><a href="#">内容3</a></li>
+        <li><a href="#">内容4</a></li>
+        <li><a href="#">内容5</a></li>
+        <li><a href="#">内容6</a></li>
+    </ul>
+</aside>
+<!--主要内容区-->
+<article>
+    <!--    文档区的头部-->
+    <header>
+        <!--        内嵌式css样式-->
+        <!--        <h1 style="color: red;">HTML 表格</h1>-->
+        <h1>HTML 表格</h1>
+        2020-10-30 17:22 更新
+        <!--        文档的第一个区域-->
+        <section>
+            <h2>HTML 表格</h2>
+            <!--            水平线-->
+            <hr/>
+            <h3>HTML 表格实例</h3>
+            <!--            表格-->
+            <table border="1">
+                <thead>
+                <tr>
+                    <th>标题1</th>
+                    <th>标题2</th>
+                    <th>标题3</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td colspan="2">2</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </header>
+    <!--    文档区的尾部-->
+    <footer>
+        版权所有
+    </footer>
+</article>
+</body>
+</html>
