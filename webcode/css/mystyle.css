@@ -1,10 +1,105 @@
+/*通用选择器，主要用户页面和站点初始化，定义最抽象的样式*/
 * {
-     color: blueviolet;
-    font-family: Algerian;
+    font-family: 微软雅黑，黑体;/*字体可以使用字体列表，如果没有首位字体自动使用列表中指明的其他字体*/
+    font-size: 12pt;/*字体大小，定义基础字体大小，页面中其他元素可以使用相对尺寸表示大小*/
+    margin: 0;/*外边距*/
+    padding: 0;/*填充距离，内边距*/
  }
 
-h1 {
-    font-size: 8em;
+/*标签选择器*/
+a {
+    text-decoration: none;/*文本修饰*/
+}
+
+/*id选择器,定义时前面有  #  ，引用时不需要*/
+#mylogo {
+    width: 206px;
+    height: 36px;
+}
+
+/*class选择器，定义时前面有   .    ,引用时不需要 */
+.mylist {
+    /*list-style: none;!*列表样式*!*/
+    margin: 20px;
+    padding: 20px;
+    list-style-type: lower-roman;
+}
+/*集合选择器*/
+.mytips,h2{
+    font-size: 1.5em;
+}
+
+/*层次选择器*/
+/*后代选择器*/
+/*案例: 导航栏中li采用横向排列的方式*/
+header ul,header li{
+    display: inline-block; /*元素的展现方式,   inline-block  行内块*/
+}
+/*案例: 导航图标应该右缩进*/
+nav>img {
+    /*margin-left: 20px;*/
+    /*margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 20px;*/
+    /*margin: 0 20px 0 20px;   */
+    /*对于一个空间如果有多个特性值描述的时候,可以使用缩写方式
+    顺时针方向定义
+    */
+    margin: 0 20px;/*第一个0 对应的是上下  20px代表的左右*/
+}
+
+/*兄弟选择器*/
+/*相邻弟弟选择器*/
+/*案例: 只要套用了.mytips样式的元素,相邻的兄弟字体变大2倍*/
+.mytips+li{
+    font-size: 2em;/*相对于当前应该展示字体大小的2倍*/
+}
+
+/*所有弟弟选择器*/
+/*案例:只要套用了  .mytips样式的元素,所有和他同级的弟弟元素变为红色*/
+.mytips~li{
+    color: red;
+}
+
+/*伪类选择器*/
+/*动态伪类选择器:   一般定义超链接的形式
+link 默认连接   hover  鼠标指向     active   鼠标按下    visited   已访问过的连接
+特别注意,顺序必须是   link   visited   hover  active
+*/
+/*案例:  导航栏中的超链接鼠标指向橙色,访问过的为深灰色*/
+nav a:link{
+    color: rgba(0,0,0,0.62);
+}
+nav a:visited{
+     color: rgba(0,0,0,0.62);/*alpha透明度支持0-1的100级调整*/
+ }
+nav a:hover{
+    color: orange;
+}
+nav a:active{
+    color: green;
+}
+
+aside a:link{
+    color: rgba(0,0,0,0.62);
+}
+aside  a:visited{
+    color: rgba(0,0,0,0.62);/*alpha透明度支持0-1的100级调整*/
+}
+aside  a:hover{
+    color: #FF0000;
+}
+aside  a:active{
+    color: green;
+}
+
+/*目标伪类选择器*/
+/*案例:将链接到的锚点位置设置为红色3倍字体大小*/
+
+:target {
+    font-size: 3em;
+    color: #FF0000;
 }
 
 /*  这是注释

@@ -9,8 +9,8 @@
     <!--            font-size: 18pt;-->
     <!--        }-->
     <!--    </style>-->
-<!--    外联式css样式-->
-    <link href="css/mystyle.css" rel="stylesheet" />
+    <!--    外联式css样式-->
+    <link href="css/mystyle.css" rel="stylesheet"/>
 </head>
 <body>
 <!--
@@ -18,14 +18,14 @@
 
 -->
 <!--页面头部-->
-<header>
+<header id="headerid">
     <!--    导航栏-->
     <nav>
-        <img src="img/logonew2.png"/>
-        <ul>
-            <li><a href="#">菜单</a></li>
-            <li><a href="#">菜单</a></li>
-            <li><a href="#">菜单</a></li>
+        <img id="mylogo" src="img/logonew2.png" />
+        <ul class="mylist">
+            <li><a href="#asideid">侧边栏</a></li>
+            <li><a href="#articleid">主题</a></li>
+            <li class="mytips"><a href="#footerid">底部</a></li>
             <li><a href="#">菜单</a></li>
             <li><a href="#">菜单</a></li>
             <li><a href="#">菜单</a></li>
@@ -33,19 +33,24 @@
     </nav>
 </header>
 
+
+<div style="height: 600px;"></div>
 <!--侧边栏-->
+<div id="asideid">侧边栏导航</div>
 <aside>
     <!--    使用无序列表组织有规律的数据展示-->
-    <ul>
+    <ul class="mylist">
         <li><a href="#">内容1</a></li>
-        <li><a href="#">内容2</a></li>
+        <li class="mytips"><a href="#">内容2</a></li>
         <li><a href="#">内容3</a></li>
         <li><a href="#">内容4</a></li>
-        <li><a href="#">内容5</a></li>
+        <li class="mytips"><a href="#">内容5</a></li>
         <li><a href="#">内容6</a></li>
     </ul>
 </aside>
+<div style="height: 600px;"></div>
 <!--主要内容区-->
+<div id="articleid">页面主体</div>
 <article>
     <!--    文档区的头部-->
     <header>
@@ -92,10 +97,14 @@
             </table>
         </section>
     </header>
+    <div style="height: 600px;"></div>
     <!--    文档区的尾部-->
+    <div id="footerid">页面底部</div>
     <footer>
         版权所有
+        <a href="#headerid">返回顶部</a>
     </footer>
+    <div style="height: 600px;"></div>
 </article>
 </body>
 </html>
