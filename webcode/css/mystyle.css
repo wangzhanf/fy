@@ -102,6 +102,64 @@ aside  a:active{
     color: #FF0000;
 }
 
+/*UI元素状态伪类选择器*/
+/*案例： 未同意协议时，文字为红色，选中复选框，文字为绿色*/
+#agree+label{
+    color: rgba(255,0,0,1);/*未选中状态*/
+}
+#agree:checked+label{
+    color: rgba(0,255,0,1);/*选中状态*/
+}
+
+#agree+label+input{
+    cursor: no-drop;
+}
+#agree:checked+label+input{
+    cursor: text;   /*修改鼠标显示状态的特性*/
+}
+
+
+/*结构伪类选择器*/
+/*案例：排行榜，要求前3名的颜色不同，最后一名删除*/
+.topten {
+    margin: 20px;
+    padding: 10px;
+}
+.topten>li:first-child {
+    color: rgba(255,0,0,1);
+}
+.topten>li:first-child+li {
+    color: orange;
+}
+.topten>li:last-child {
+    color: rgba(0,0,0,0.4);
+    text-decoration: line-through;  /*文本修饰符特性 ，值为删除线*/
+}
+/*表格的奇数行和偶数行背景颜色不同，鼠标指向变色*/
+.mytab {
+    border-collapse: collapse;  /*边框的压缩方式特性*/
+    width: 80%;
+    border-top: red 1px solid;   /*边框,  线条的形式    ，    线宽      ，颜色     */
+    border-left: red 1px solid;   /*边框,  线条的形式    ，    线宽      ，颜色     */
+}
+
+.mytab td,.mytab th {
+    border-right: red 1px solid;   /*边框,  线条的形式    ，    线宽      ，颜色     */
+    border-bottom: red 1px solid;   /*边框,  线条的形式    ，    线宽      ，颜色     */
+    padding: 5px 10px;
+}
+.mytab>thead>tr:first-child {
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.mytab>tbody>tr:nth-child(2n+1){
+    background-color: rgba(0,0,0,0.3);  /*背景颜色特性*/
+}
+.mytab>tbody>tr:nth-child(2n){
+    background-color: rgba(0,0,0,0.2);
+}
+.mytab>tbody>tr:hover{
+    opacity: 0.75;  /*透明度特性  0-1的100级*/
+}
 /*  这是注释
 
 选择器  {
