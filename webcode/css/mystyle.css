@@ -135,7 +135,7 @@ aside  a:active{
     color: rgba(0,0,0,0.4);
     text-decoration: line-through;  /*文本修饰符特性 ，值为删除线*/
 }
-/*表格的奇数行和偶数行背景颜色不同，鼠标指向变色*/
+/*案例：表格的奇数行和偶数行背景颜色不同，鼠标指向变色*/
 .mytab {
     border-collapse: collapse;  /*边框的压缩方式特性*/
     width: 80%;
@@ -160,6 +160,18 @@ aside  a:active{
 .mytab>tbody>tr:hover{
     opacity: 0.75;  /*透明度特性  0-1的100级*/
 }
+/*否定伪类选择器*/
+/*案例：表格数据的第2列文字为3倍大小，其他列文字为1.5倍大小*/
+/*.mytab>tbody>tr>td{
+    font-size: 1.5em;
+}
+.mytab>tbody>tr>td:nth-child(2){
+    font-size: 1em;
+}*/
+.mytab>tbody>tr>td:not(:nth-child(2)){
+    font-size: 1.5em;
+}
+
 /*  这是注释
 
 选择器  {

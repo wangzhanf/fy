@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+/*
+        [lang|=zh]{
+            direction: ltr;
+        }*/
+        a {
+            display: block;    /*设置展现形式为块（块元素--》默认独立成行）*/
+        }
+        [href$=doc]::after{
+            content: " 【文档文件】";
+        }
+        [href$=xls]::after{
+            content: " 【电子表格文件】";
+        }
+        [href$=pdf]::after{
+            content: " 【预格式化文件】";
+        }
+    </style>
+</head>
+<body>
+<!--
+    站点链接到的资源形式不同，根据链接的类型在前面显示文件类型提示
+-->
+
+<a href="gerenjianli.doc">个人简历</a>
+<a href="gongzibiao.xls">工资表</a>
+<a href="jiaocheng.pdf">教程</a>
+<a href="gerenjianli.doc">个人简历</a>
+<a href="gongzibiao.xls">工资表</a>
+<a href="jiaocheng.pdf">教程</a>
+<a href="gerenjianli.doc">个人简历</a>
+<a href="gongzibiao.xls">工资表</a>
+<a href="jiaocheng.pdf">教程</a>
+<a href="gerenjianli.doc">个人简历</a>
+<a href="gongzibiao.xls">工资表</a>
+<a href="jiaocheng.pdf">教程</a>
+<a href="gerenjianli.doc">个人简历</a>
+<a href="gongzibiao.xls">工资表</a>
+<a href="jiaocheng.pdf">教程</a>
+<a href="gerenjianli.doc">个人简历</a>
+<a href="gongzibiao.xls">工资表</a>
+<a href="jiaocheng.pdf">教程</a>
+</body>
+</html>

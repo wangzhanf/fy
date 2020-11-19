@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        /*img {
+            width: 852px; !*width特性必须要指明单位*!
+            height: 639px;
+        }*/
+
+        img {
+            width: 95%;
+            max-width: 852px;
+            min-width: 200px;
+            height: 100%;/*CSS中一般情况高度没有意义，因为高度是容器自动计算的*/
+            border: 1px red solid;
+            padding: 8px;
+            /*border-radius: 426px;*/
+            border-radius: 50%;/*弧度是宽和高的一半*/
+        }
+
+        .mybg {
+            width: 90%;
+            margin: 0 auto;/*当前容器水平居中*/
+            height: 1300px;
+            background-color: blueviolet;/*背景颜色*/
+            background-image: url("img/02.jpg");/*背景图*/
+            background-repeat: no-repeat;/*背景是否重复的特性*/
+            /*background-size: 400px  300px;   !*背景图片的尺寸，可以使用宽高值，也可以使用关键词*!*/
+            background-size: contain;   /*背景图片的尺寸，可以使用宽高值，也可以使用关键词contain ,随着容器大小变化*/
+            /*background-size: cover; */
+        }
+
+        /*精灵图片*/
+        .avatar1,.avatar2{
+            margin: 30px;
+            width: 120px;
+            height: 120px;
+            background-image: url("img/avatar.jpg");
+        }
+        .avatar1{
+            background-position: -20px -80px ;/*背景图片定位*/
+        }
+        .avatar2{
+            background-position: -380px -350px ;/*背景图片定位*/
+        }
+    </style>
+</head>
+<body>
+<!--    <img src="img/02.jpg" width="852" height="639" />  默认是以像素  px为单位-->
+    <div>
+        <img src="img/02.jpg" />
+    </div>
+    <div class="mybg">
+        好好学习
+    </div>
+
+    <div class="avatar1">
+        1号
+    </div>
+    <div class="avatar2">
+        2号
+    </div>
+</body>
+</html>
