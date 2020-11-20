@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        body {
+            color: red;
+        }
+        #mybox {
+            font-size: 3em;
+        }
+        #myele{ /*优先级  0100*/
+            text-decoration: underline;
+            color: blue;
+        }
+
+        /*.tips {*/
+        /*    color: green;*/
+        /*}*/
+        .tips{  /*优先级   0010*/
+            color: orange;
+        }
+
+        #mybox span.tips{   /*优先级：  0111 */
+            color: blueviolet;
+        }
+
+        #myele.tips{  /*优先级   0110*/
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+
+<div id="mybox">
+<!--    <span id="myele" class="tips" style="color: deeppink">这是一段文字</span>！！！！！！！！！！！！！-->
+    <span id="myele" class="tips">这是一段文字</span>！！！！！！！！！！！！！
+</div>
+div外的内容
+</body>
+</html>

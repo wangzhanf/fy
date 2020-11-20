@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        a {
+            text-decoration: none;
+            display: block;/*默认独立成行*/
+            margin: 10px;
+        }
+        a::before {
+            content: "";
+            display: inline-block; /*行内块*/
+            width: 75px;
+            height: 90px;
+            background-color: blueviolet;
+            background-image: url("img/fileType.jpg");
+        }
+        a[href$="doc"]::before{
+            background-position: -886px -495px;
+        }
+        a[href$="mp3"]::before{
+            background-position: -283px -62px;
+        }
+        a[href$="xls"]::before{
+            background-position: -886px -352px;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="xxx.doc">简历模板</a>
+    <a href="xxx.xls">工资表</a>
+    <a href="xxx.mp3">背景音乐</a>
+    <a href="xxx.doc">个人简历</a>
+
+</body>
+</html>

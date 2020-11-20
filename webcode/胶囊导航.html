@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        nav {
+            width: 75%;
+            /*background-color: blueviolet;*/
+            margin: 10px auto;/*容器水平居中*/
+        }
+
+        nav ul {
+            list-style: none; /*取消默认的列表样式*/
+            background-color: orange;
+        }
+
+        nav ul li {
+            display: block;
+            float: left;
+            width: 20%;
+            height: 4em;
+            line-height: 4em;
+            background-color: orangered;
+            text-align: center;/*水平文字居中*/
+            color: white;
+            font-size: 1.8em;
+            /*border-radius: 10px;*/
+        }
+        nav ul li:hover {
+            opacity: 0.7;
+        }
+
+        nav ul li:not(:first-child)::before {
+            content: "|";
+            padding: 0 1em;
+        }
+
+        nav ul li:first-child{
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+        }
+        nav ul li:last-child{
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+<nav>
+    <ul>
+        <li>HOME</li>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+        <li>VUE</li>
+    </ul>
+</nav>
+</body>
+</html>
