@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        div{
+            float: left;
+            height: 200px;
+        }
+
+        .lists{
+            background-color: blueviolet;
+        }
+        .content{
+            background-color: orangered;
+        }
+
+        /*大于960像素的屏幕*/
+        @media screen and (max-width:479px ){
+            .lists{
+                display: none;
+            }
+            .content{
+                width: 100%;
+            }
+        }
+
+        /*部分样式在不同视口生效  ,   建议是开闭原则   [  ) */
+        @media screen and (min-width: 480px) and (max-width:959px){
+            .lists {
+                width: 25%;
+            }
+            .content {
+                width: 75%;
+            }
+        }
+
+        /*大于960像素的屏幕*/
+        @media screen and (min-width:960px ){
+            .lists{
+                float: right;
+                width: 20%;
+            }
+            .content{
+                float: right;
+                width: 80%;
+            }
+        }
+
+        .infoTable{
+            width: 90%;
+            margin: 10px auto;
+            border-left: 1px solid orangered;
+            border-top:  1px solid orangered;
+            border-collapse: collapse;
+        }
+
+        .infoTable td,.infoTable th{
+            border-right: 1px solid orangered;
+            border-bottom:  1px solid orangered;
+            padding: 5px;
+        }
+        .infoTable tbody>tr:nth-child(2n){
+             background-color: rgba(0,0,0,0.2);
+         }
+        .infoTable tbody>tr:nth-child(2n+1){
+            background-color: rgba(0,0,0,0.1);
+        }
+        .infoTable tbody>tr:hover{
+            opacity: 0.75;
+        }
+
+        @media screen and (max-width: 719px) {
+            /*隐藏2个列*/
+            .hiddenPhone {
+                display: none;
+            }
+
+            .infoTable>tbody>tr>td:nth-child(2n),.infoTable>thead>tr>th:nth-child(2n){
+                display: none;
+            }
+
+            .infoTable>tbody>tr>td:nth-child(3)::before{
+                content: "Telphone:";
+            }
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="lists">
+    目录
+</div>
+<div class="content">
+    内容
+</div>
+
+<table class="infoTable">
+    <thead>
+    <tr>
+        <th>姓名</th>
+        <th>住址</th>
+        <th>电话</th>
+        <th>电子邮件</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>张三1</td>
+        <td>火星xxx区</td>
+        <td>13888888888</td>
+        <td>zhangsan@vip.com</td>
+    </tr>
+    <tr>
+        <td>张三2</td>
+        <td>火星xxx区</td>
+        <td>13888888888</td>
+        <td>zhangsan@vip.com</td>
+    </tr>
+    <tr>
+        <td>张三3</td>
+        <td>火星xxx区</td>
+        <td>13888888888</td>
+        <td>zhangsan@vip.com</td>
+    </tr>
+    <tr>
+        <td>张三4</td>
+        <td>火星xxx区</td>
+        <td>13888888888</td>
+        <td>zhangsan@vip.com</td>
+    </tr>
+    <tr>
+        <td>张三5</td>
+        <td>火星xxx区</td>
+        <td>13888888888</td>
+        <td>zhangsan@vip.com</td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

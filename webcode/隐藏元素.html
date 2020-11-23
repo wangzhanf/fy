@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .controlZone {
+            width: 300px;
+            height: 200px;
+            background-color: blueviolet;
+        }
+
+        .controlZone{
+        /*    第一种方式:将高度设置为0,如果内部存在元素,元素本身不隐藏*/
+        /*    height: 0px;*/
+        /*    overflow: hidden;!*将溢出的内容隐藏,如果值为auto,可以将溢出内容显示在滚动区域*!*/
+        }
+        .controlZone{
+        /*    第2种方式   ,让空间的透明度为0,空间依然占用*/
+        /*    opacity: 0;*/
+        /*    第3种方式, visibility特性, 空间依然占用*/
+        /*    visibility: hidden;*/
+        /*    第4种方式,  display特性,空间被消失,有可能造成页面元素的抖动,一般都会将该区间设置为绝对定位*/
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="controlZone">
+        隐藏区域<br />
+        隐藏区域<br />
+        隐藏区域<br />
+        隐藏区域<br />
+        隐藏区域<br />
+        隐藏区域<br />
+        隐藏区域<br />
+        隐藏区域<br />
+        隐藏区域<br />
+        隐藏区域<br />
+        隐藏区域<br />
+        隐藏区域<br />
+        隐藏区域<br />
+        隐藏区域<br />
+    </div>
+正常的显示区域
+</body>
+</html>

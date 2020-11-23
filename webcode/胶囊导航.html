@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -15,46 +15,103 @@
             background-color: orange;
         }
 
-        nav ul li {
+        .mainNav>li {
             display: block;
             float: left;
             width: 20%;
             height: 4em;
             line-height: 4em;
-            background-color: orangered;
+            background-color: blueviolet;
             text-align: center;/*水平文字居中*/
             color: white;
             font-size: 1.8em;
             /*border-radius: 10px;*/
+
+        /*    针对于子菜单中进行的父元素相对定位特性*/
+            position: relative;/*相对*/
         }
         nav ul li:hover {
             opacity: 0.7;
         }
 
-        nav ul li:not(:first-child)::before {
-            content: "|";
+        .mainNav>li:not(:first-child)::before {
+            /*content: "|";*/
             padding: 0 1em;
         }
 
-        nav ul li:first-child{
+        .mainNav>li:first-child{
             border-top-left-radius: 20px;
             border-bottom-left-radius: 20px;
         }
-        nav ul li:last-child{
+        .mainNav>li:last-child{
             border-top-right-radius: 20px;
             border-bottom-right-radius: 20px;
+        }
+
+        /*回到顶部按钮*/
+        #goTop{
+            position: fixed;
+            /*top: 40px;*/
+            /*left: 60px;*/
+            right: 20px;
+            bottom: 30px;
+        }
+
+        /*弹出式子菜单*/
+        /*默认情况下让子菜单隐藏*/
+        .subNav {
+            display: none;/*隐藏，不占用空间*/
+        }
+        /*鼠标指向开关按钮时，子菜单显示*/
+        .toggleBtn:hover+.subNav{
+            display: block;
+        }
+        /*让触发按钮的响应区域变大*/
+        .toggleBtn{
+            display: block;
+        }
+        /*鼠标指向子菜单时，子菜单显示*/
+        .subNav:hover{
+            display: block;
+        }
+        /*让子菜单产生偏移*/
+        .subNav{
+            position: absolute;
+            left: 20px;
         }
     </style>
 </head>
 <body>
-<nav>
-    <ul>
+<nav id="top">
+    <ul class="mainNav">
         <li>HOME</li>
-        <li>HTML</li>
-        <li>CSS</li>
+        <li>
+            <a class="toggleBtn" href="#">HTML</a>
+            <ul class="subNav">
+                <li>HTML规范</li>
+                <li>HTML相册</li>
+                <li>HTML框架</li>
+            </ul>
+        </li>
+        <li>
+            <a class="toggleBtn" href="#">CSS</a>
+            <ul class="subNav">
+                <li>CSS类型</li>
+                <li>CSS选择器</li>
+                <li>CSS盒子</li>
+            </ul>
+        </li>
         <li>JavaScript</li>
         <li>VUE</li>
     </ul>
 </nav>
+
+<div style="height: 2200px;background-color: orange">
+    文档内容
+</div>
+
+<div id="goTop">
+    <a href="#top">回到顶部</a>
+</div>
 </body>
 </html>
