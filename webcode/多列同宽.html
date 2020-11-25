@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .nav{
+            background-color: orangered;
+            overflow: auto;/*防止空间塌陷*/
+        }
+        .nav>li{
+            background-color: blueviolet;
+            /*display: inline-block;*/
+            float: left;
+            padding: 2px;
+        }
+
+        .nav>li:nth-child(1):nth-last-child(1){
+            width: 100%;
+        }
+        .nav>li:nth-child(1):nth-last-child(2),.nav>li:nth-child(1):nth-last-child(2)~li{
+            width: 50%;
+        }
+        .nav>li:nth-child(1):nth-last-child(3),.nav>li:nth-child(1):nth-last-child(3)~li{
+            width: 33.333333%;
+        }
+        .nav>li:nth-child(1):nth-last-child(4),.nav>li:nth-child(1):nth-last-child(4)~li{
+            width: 25%;
+        }
+        .nav>li:nth-child(1):nth-last-child(5),.nav>li:nth-child(1):nth-last-child(5)~li{
+            width: 20%;
+        }
+    </style>
+</head>
+<body>
+<ul class="nav">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+    <li>6</li>
+</ul>
+
+</body>
+</html>

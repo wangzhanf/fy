@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+<!--    适应不同的设备-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Title</title>
+    <style type="text/css">
+        /*调整盒子的类型*/
+        * { box-sizing: border-box; }
+
+        /*行容器最主要做，每行结束清除浮动*/
+        .row::after{
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        [class*="col-"]{
+            display: block;
+            float: left;
+            padding: 1rem;
+            text-wrap: normal;
+        }
+
+        /*不同占用列宽的比例*/
+        .col-1 {width: 8.33%;}
+        .col-2 {width: 16.66%;}
+        .col-3 {width: 25%;}
+        .col-4 {width: 33.33%;}
+        .col-5 {width: 41.66%;}
+        .col-6 {width: 50%;}
+        .col-7 {width: 58.33%;}
+        .col-8 {width: 66.66%;}
+        .col-9 {width: 75%;}
+        .col-10 {width: 83.33%;}
+        .col-11 {width: 91.66%;}
+        .col-12 {width: 100%;}
+    </style>
+</head>
+<body>
+<!--    测试区域-->
+<div class="row">
+    <div class="col-3">
+        这是第1个元素空间，这是第1个元素空间，这是第1个元素空间，这是第1个元素空间，这是第1个元素空间，
+    </div>
+    <div class="col-6">
+        这是第2个元素空间
+    </div>
+    <div class="col-3">
+        这是第3个元素空间
+    </div>
+</div>
+<div class="row">
+    <div class="col-4">
+        4
+    </div>
+    <div class="col-8">
+        5
+    </div>
+</div>
+</body>
+</html>
