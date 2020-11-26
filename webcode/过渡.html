@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        /*默认隐藏*/
+        .disZone{
+            width: 40px;
+            height: 30px;
+            background-color: orangered;
+            transition: all .3s ease-in .2s;
+        }
+        /*鼠标指向开关显示显示区*/
+        .toggle:hover+.disZone{
+            width: 400px;
+            height: 300px;
+            /*产生过渡效果*/
+            transition: all .3s ease-in .2s;
+        }
+    </style>
+</head>
+<body>
+
+<span class="toggle">开关</span>
+<div class="disZone">
+    显示区域
+</div>
+
+</body>
+</html>

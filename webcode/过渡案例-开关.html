@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        [name="togg"]{
+            display: none;
+        }
+        .out{
+            width: 200px;
+            height: 30px;
+            border: 1px solid rgba(0,0,0,0.3);
+            border-radius: 15px;
+            transition: all 200ms ease-in 20ms;
+            box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.3);
+        }
+        .in{
+            width: 20px;
+            height: 20px;
+            background-color: rgba(0,0,0,0.3);
+            border-radius: 50%;
+            margin: 5px;
+            transition: all 200ms ease-in 20ms;
+            box-shadow: 2px 2px 2px 1px rgba(0,0,0,0.3);
+        }
+
+        input:checked+.out{
+            border: 1px solid rgba(55,155,255,1);
+            transition: all 200ms ease-in 20ms;
+            box-shadow: 2px 2px 2px 1px rgba(55,155,255,0.3);
+        }
+
+        input:checked+.out>.in{
+            margin-left: 175px;
+            transition: all 200ms ease-in 20ms;
+            background-color: rgba(55,155,255,1);
+            box-shadow: 2px 2px 2px 1px rgba(55,155,255,0.3);
+        }
+    </style>
+</head>
+<body>
+<label>
+<input type="checkbox" name="togg" />
+<div class="out">
+    <div class="in"></div>
+</div>
+</label>
+</body>
+</html>

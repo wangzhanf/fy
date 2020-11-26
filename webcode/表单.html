@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        label,input{
+            /*display: block;*/
+        }
+
+        input[type=text]{
+            border: none;
+            outline: none;
+            border-bottom: 1px solid rgba(0,0,0,0.3);
+            transition: all 500ms ease-in 10ms;
+        }
+
+        input[type=text]:focus{
+            border-bottom: 2px solid rgba(239,0,44,0.9);
+            transition: all 500ms ease-in 10ms;
+        }
+    </style>
+</head>
+<body>
+<form method="get">
+    <!--        这是一个温度控制程序-->
+    <!--        <input type="text"-->
+    <!--        <input type="text" name="username" />-->
+    <!--        <input type="text" name="username" value="abc" />-->
+    <!--        <input type="password" name="passwd" />-->
+    <!--        <input type="checkbox" name="remeber" checked="checked" />记住我的登录状态-->
+    <label>
+        姓名:<input type="text" name="stdname" required="required" /></label>
+    <label>
+        密码:<input type="password" name="stdpass"/></label>
+    <label><input type="text" autofocus="autofocus" pattern="1[356789][0-9]{9}" placeholder="请输入电话号码" name="telphone"/></label>
+    <label><input type="radio" name="gender" checked="checked" value="男" tabindex="-2" />男</label>
+    <input id="genderChoice" type="radio" name="gender" value="女" tabindex="-2" />女
+    <input type="checkbox" name="hobby" value="A" tabindex="-2" />吃饭
+    <input type="checkbox" name="hobby" value="B" tabindex="-2" />睡觉
+    <input type="checkbox" name="hobby" value="C" tabindex="-2" />游戏
+    <input type="date" name="birth" tabindex="9"/>
+    <input type="range" name="floor" min="1" max="7"/>
+    <input type="color" name="luck"/>
+
+    <input type="submit" value="提交表单"/>
+
+    <label for="genderChoice">点击此处选中性别为女</label>
+</form>
+</body>
+</html>
