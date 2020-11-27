@@ -19,6 +19,14 @@
             border-bottom: 2px solid rgba(239,0,44,0.9);
             transition: all 500ms ease-in 10ms;
         }
+        textarea{
+            width: 200px;
+            height: 100px;
+            min-width: 200px;
+            min-height: 100px;
+            max-width: 240px;
+            max-height: 150px;
+        }
     </style>
 </head>
 <body>
@@ -42,8 +50,29 @@
     <input type="date" name="birth" tabindex="9"/>
     <input type="range" name="floor" min="1" max="7"/>
     <input type="color" name="luck"/>
+    <select name="education">
+        <option value="xx">小本</option>
+        <option selected="selected" value="zx">中学</option>
+        <option value="dx">大学</option>
+    </select>
+
+    <input type="text" name="city" list="cityList" placeholder="选择城市" />
+
+
+
+    <textarea>
+
+    </textarea>
 
     <input type="submit" value="提交表单"/>
+    <datalist id="cityList">
+        <option value="bj">北京</option>
+        <option value="nj">南京</option>
+        <option value="xj">西京</option>
+        <option value="dj">东京</option>
+        <option value="sh">上海</option>
+        <option value="sz">深圳</option>
+    </datalist>
 
     <label for="genderChoice">点击此处选中性别为女</label>
 </form>

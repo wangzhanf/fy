@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<!--<body onload="alert('welcome');">-->
+<body>
+    <img id="myImg" src="img/02.jpg" onclick="alert('haha');" />
+    <input type="text" id="uname" name="uname" />
+    <span id="tips"></span>
+    <input type="button" id="btn" onclick="fun2();" value="按钮" />
+    <input type="button" id="ch" onclick="changeImg();" value="切图" />
+
+
+
+<script>
+
+    // alert("haha");
+    // if(confirm("您是否要消费呢")){
+    //     alert("扣款100元");
+    // }else{
+    //     alert("欢迎再次光临");
+    // }
+
+    // var age  = prompt("请输入您的年龄","18");
+    // if(age >= 18){
+    //     alert("可以喝酒");
+    // }else{
+    //     alert("抓起来");
+    // }
+    //
+    //
+    // for (var i = 0; i < 9; i++) {
+    //     // console.log(i);
+    // }
+    //
+    // function fun1(){
+    //     alert("函数被调用了");
+    // }
+    //
+    // function fun2(){
+    //    alert(document.getElementById("uname").value);
+    // }
+
+
+    // JavaScript输出
+    // console.log("在控制台输出的信息");
+    // document.write("输出到页面中");
+    //
+    // var oInput =  document.getElementById("uname");
+    // var oSpan =  document.getElementById("tips");
+    //
+    // oInput.value =  "这是js输出的内容";
+    // // oSpan.innerText = "<strong>这是错误提示消息</strong>";
+    // oSpan.innerHTML = "<strong>这是错误提示消息</strong>";
+    //
+    // function changeImg() {
+    //     var oImg = document.getElementById("myImg");
+    //     // oImg.src = "img/01.jpg";
+    //     oImg.setAttribute("src","img/01.jpg");
+    // }
+
+
+    var age  = 18;
+
+    function disAge() {
+        console.log(age);
+        age = 22;
+        gender = "男";
+        console.log(age);
+    }
+
+    disAge();
+    alert(gender);
+
+
+    for (var i = 0; i < 9; i++) {
+        console.log(i);
+    }
+
+    alert(i);//
+
+
+</script>
+
+<!--<script src="js/main.js">alert("abcd");</script>-->
+
+</body>
+</html>
