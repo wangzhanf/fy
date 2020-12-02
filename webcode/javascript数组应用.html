@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .clf{
+            clear: both;
+        }
+
+        .ball {
+            display: block;
+            float: left;
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+            border-radius: 50%;
+            text-align: center;
+            color: white;
+            font-weight: bolder;
+            line-height: 40px;
+            box-shadow: 3px 3px 3px black;
+        }
+        .redBall{
+            background-color: red;
+        }
+        .blueBall{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+<button onclick="choice();" id="btn">生成随机号</button>
+<div id="disZone">
+
+</div>
+<script>
+    //选号函数
+    function choice() {
+        console.log("函数被调用了");
+
+        //0 变量的定义
+        var redPoolSize = 35;//红色球奖池的容量
+        var bluePoolSize = 15;//蓝色球奖池的容量
+        var redNums = 6;    //红色结果的数量
+        var blueNums = 2;
+        var redResult = new Array();//红球结果集
+        var blueResult = new Array();//红球结果集
+        var oDis = document.getElementById("disZone");//获取显示区域对象
+
+        //1 初始化奖池
+        var redPool = new Array(redPoolSize);//声明红色球奖池
+        for (let i = 0; i < redPoolSize ; i++) {
+            redPool[i] = i+1;
+        }
+        var bluePool = new Array(bluePoolSize);//声明红色球奖池
+        for (let i = 0; i < bluePoolSize ; i++) {
+            bluePool[i] = i+1;
+        }
+
+        //console.log(redPool);
+        // console.log(bluePool);
+
+        //2 从奖池中随机不重复抽取指定个数的球
+        var iRand = 0;
+        for (let i = 0; i < redNums; i++) {
+            iRand = Math.floor(Math.random()*redPool.length);//得到的是0到现有数组长度之间的随机数
+            redResult.push(redPool.splice(iRand,1)[0]);
+        }
+        console.log(redResult);
+        for (let i = 0; i < blueNums; i++) {
+            iRand = Math.floor(Math.random()*bluePool.length);//得到的是0到现有数组长度之间的随机数
+            blueResult.push(bluePool.splice(iRand,1)[0]);
+        }
+        console.log(blueResult);
+        //3 对数据进行处理【排序】
+        //redResult.sort(function(x,y){return y-x;}); //使用匿名函数方式，该函数可能是用于触发事件的，理论上只需要调用一次
+        blueResult.sort(mysort);    //只使用函数名不使用（）的目的是将该函数的地址传递给调用者（函数指针）
+        redResult.sort(mysort);
+        console.log(redResult);
+        console.log(blueResult);
+
+        //4 输出到界面
+        for (let i = 0; i < redResult.length; i++) {
+            oDis.innerHTML += "<span class='ball redBall'>" + redResult[i] + "</span>";
+        }
+        for (let i = 0; i < blueResult.length; i++) {
+            oDis.innerHTML += "<span class='ball blueBall'>" + blueResult[i] + "</span>";
+        }
+        oDis.innerHTML += "<div class='clf'></div>";
+
+    }
+
+    function mysort(x,y){
+        return x-y;
+    }
+</script>
+</body>
+</html>

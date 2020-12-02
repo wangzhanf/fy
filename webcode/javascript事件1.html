@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input type="text" id="num" />
+<div id="disZone"></div>
+<img src="img/04.jpg" id="myimg" />
+<script>
+    //1 找到事件发生的对象
+    var oInput  = document.getElementById("num");//获取文本输入框对象
+    //2 确定触发事件  keyXXXX
+    //3 给选择的对象绑定事件处理函数(方式1，采用匿名函数)
+    oInput.onkeyup = function(eve){
+        //alert(eve);//javascript中，每个事件如果触发函数，函数默认的第一个参数就是该事件本身
+        //4 编写具体的处理业务
+        var oDis = document.getElementById("disZone");
+        oDis.innerHTML = oInput.value;
+    }
+
+    var oImg = document.getElementById("myimg");
+    oImg.onload = function (eve) {
+        oImg.src = "abc.jgp";
+    }
+</script>
+
+</body>
+</html>

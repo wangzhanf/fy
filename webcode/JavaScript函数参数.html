@@ -20,18 +20,40 @@
 </head>
 <body>
 
-<button onclick="mul();">生成乘法表</button>
+<!--
+    通过表单方式输入乘法表的边界，生成对应的乘法表
+-->
+<input type="text" id="num" placeholder="请输入数字" />
+<button onclick="prev();">生成乘法表</button>
 <div id="dis"></div>
 <script>
     //调用函数
-    mul();
+    //mul();
 
+    function prev() {
+        //1 获取表单中输入的值
+        var oInput = document.getElementById("num");
+        var sNum = oInput.value;
+        if(parseInt(sNum)){
+            iNum = parseInt(sNum);
+        }else{
+            iNum = 9;
+        }
 
+        //2 调用函数绘制乘法表
+        mul(iNum);
+    }
 
     //函数的定义
-    function mul() {
+    function mul(a) {
+        //a   undified
+        // if(!a){
+        //     a = 9;
+        // }
+        // a = a ? a : 9;  //三元表达式处理
+
         var result = "";
-        for (var i = 1; i < 10; i++) {
+        for (var i = 1; i < a; i++) {
             for (var j = 1; j <=i; j++) {
                 result += "<div class='b'>"+i +" * "+ j + "=" + i * j+"</div>";
             }

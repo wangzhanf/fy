@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div id="out">
+    123
+    <div id="in">abc</div>
+    456
+</div>
+
+<script>
+    var oIn = document.getElementById("in");
+    var oOut = document.getElementById("out");
+    oIn.onclick = function (eve) {
+        console.log("内部被点击了");
+    }
+
+    oOut.onclick = function (eve) {
+        console.log("外部被点击了");
+    }
+</script>
+
+</body>
+</html>

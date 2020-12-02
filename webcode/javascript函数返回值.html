@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        a{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<a id="btn" href="https://www.baidu.com">百度</a>
+<input type="text" id="username" placeholder="请输入用户名" />
+<script>
+
+    var oBtn = document.getElementById("btn");//获取超链接的对象
+    var oUsername = document.getElementById("username");//获取表单的对象
+
+    oBtn.onclick = function (eve) {
+        if(oUsername.value == "admin"){
+            alert("用户验证成功");
+        }else{
+            alert("您还没有登录");
+            return false;
+        }
+    }
+
+    function abc(eve){
+        alert(eve);
+    }
+
+    //返回两个值中较大的值
+
+    //函数的定义
+    function getMax(a,b){
+        /*var max;
+        if(a>b){
+            max=a;
+        }else{
+            max=b;
+        }
+        return max;*/
+
+        return a>b?a:b;
+    }
+
+    //函数调用
+    console.log(getMax(5,13));
+
+    //跳转页面前的检查
+    function checkUser() {
+        //1 获取表单中的数据
+        // var oInput = document.getElementById("username");
+        // var sName = oInput.value;
+        alert("hello");
+
+        // eve.preventDefault();//阻止默认行为
+
+        return false;   //对于超链接或表单等元素，都拥有默认行为
+
+
+        // if(sName == "admin"){
+        //     //允许跳转
+        // }else{
+        //     //禁止跳转
+        //     return false;
+        // }
+    }
+</script>
+
+</body>
+</html>

@@ -184,6 +184,26 @@ true和false
 
 对象(Object)
 
+
+
+
+
+
+
+# 上课回顾
+
+JavaScript常用的客户端编程脚本语言，jQuery，VUE，Node.js ， TypeScript
+
+JavaScript特点： 解释性（解析执行--》浏览器内置的解析器），弱类型（变量可以不限定类型）
+
+JavaScript作用：客户端的服务器编程 node.js  ，  浏览器中行为的控制
+
+ECMAScript + BOM（浏览器对象模型）+DOM（文档对象模型）  = JavaScript
+
+输入输出：
+
+
+
 # 函数
 
 什么是函数：    可以复用的代码片段，根据用户的输入进行处理产生输出，其他语言中可能叫做   过程，方法
@@ -193,4 +213,73 @@ true和false
 函数的定义：   使用关键字   function   进行，也可以使用lamda表达式（箭头语法）
 
 函数的调用：  HTML的事件属性
+
+
+
+## 函数的参数
+
+JavaScript的函数调用时没有先后顺序
+
+JavaScript的函数可以通过参量传入实参，但是由于JavaScript是弱类型语言，不允许出现重载,如果需要程序健壮，需要在函数内部自己编码实现约束
+
+定义了参量但是调用时没有传递实参时，该参量为  undefined
+
+## 函数的返回值
+
+通过return实现返回
+
+return后的语句不会执行
+
+如果没有return则函数返回  undefined
+
+如果函数返回false  ， 则代表取消事件的默认行为（超链接的跳转，表单的提交行为）
+
+## 变量作用域
+
+JavaScript【ECMAScript5】的变量只有两个作用域      全局      函数
+
+全局的作用域   >   函数的作用域
+
+按照C的编程规范编写，所有的变量都在头部声明和初始化
+
+在函数内部声明变量时，如果没有指定关键字var  ，则变量会自动提升为全局变量，好的编程习惯应该在变量前都添加var关键字【防止自动提升】
+
+全局变量容易造成变量污染
+
+建议采用let替代var ，let是ECMAScript6 提出的标准，，let具有块作用域    {   }     
+
+# 数组
+
+同类型的变量为了方便调用通过连续的存储空间访问方式，通过统一的名称调用（下标索引）   
+
+JavaScript中允许一个数组存储不同类型数据
+
+JavaScript的数组是动态自增
+
+JavaScript中，数组元素没有赋值时是   undefined
+
+# 事件
+
+事件是某种行为																	click      pressUp
+
+行为发生之后采取的措施叫做时间处理函数【回调】		onclick    onPressUp
+
+
+
+事件的使用
+
+1	通过HTML的事件属性         
+
+```html
+<tag    onclick="javascript代码"></tag>
+认识即可
+```
+
+2	基于DOM的事件编程
+
+优点： 完全脱离了HTML限制，降低了HTML和JavaScript之间的耦合
+
+
+
+## 事件冒泡
 
