@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>
+    今日菜单
+</h1>
+<ul id="list">
+    <li>红烧肉</li>
+    <li>鱼香肉丝</li>
+    <li>麻辣豆腐</li>
+</ul>
+
+<h1>
+    已点菜品
+</h1>
+<ul id="mylist">
+
+</ul>
+<script>
+    //1 编写结构
+    window.onload = function(eve) {
+        //给菜单元素绑定事件
+        //获取菜单项对象
+        var oLis = document.querySelectorAll("#list>li");
+        //绑定事件
+        for (let i = 0; i < oLis.length; i++) {
+            oLis[i].onclick = choice;
+        }
+
+        //取消已点菜品
+        //mylist为空,不能直接对li绑定事件,需要使用事件委托方式,给父元素绑定事件,通过target获取真实触发对象
+        var oMyList = document.querySelector("#mylist");
+        oMyList.onclick = function (eve) {
+            eve.target.remove();
+        }
+    }
+
+    function choice(eve) {
+        //获取已点菜品的对象
+        var oUl = document.querySelector("#mylist");//获取已点菜品的列表
+        //将当前元素复制一份
+        var newNode = eve.target.cloneNode(true);//clone复制一个节点
+        // oUl.appendChild(newNode);//追加新节点到已点菜品列表中
+        oUl.prepend(newNode);
+    }
+
+    //
+    // function cancel(eve) {
+    //     eve.target.remove();
+    // }
+
+</script>
+
+</body>
+</html>

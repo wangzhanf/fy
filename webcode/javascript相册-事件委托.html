@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #imgList img {
+            width: 180px;
+            height: 135px;
+        }
+    </style>
+</head>
+<body onclick="alert('鼠标点击了');">
+<div>
+    <img src="img/03.jpg" id="bigPic" width="800" height="600" />
+</div>
+<div id="imgList">
+    <img id="img1" src="img/01.jpg" />
+    <img src="img/02.jpg" />
+    <img src="img/03.jpg" />
+    <img src="img/04.jpg" />
+</div>
+<div id="other"></div>
+<script>
+    // var oImg1 = document.getElementById("img1");
+    // oImg1.onclick = function (eve){
+    //     document.getElementById("bigPic").src = oImg1.src;
+    // }
+//利用事件冒泡的特性，给父容器添加事件处理函数
+    var oDiv = document.getEl2ementById("imgList");//获得父容器的对象
+    document.onclick = change;  //事件的绑定，事件的注册
+    //事件回调函数是一个命名函数时，可以将函数名放在右值部分，相当于将函数的地址赋值给事件处理函数了
+    //极易犯错的地方，切记，函数名后面没有(),如果有（）代表将函数执行的返回结果赋值给事件处理函数【本例中就是undefined】
+
+    //事件回调函数如果会被多次使用到，可以使用命名函数方式
+        function change(eve) {//给父容器对象绑定事件
+            //eve   事件处理函数中的第一个参数就是事件本身
+            //可以通过事件本身的一些属性[target]获取真实对象
+            //alert(eve.target.src);
+            document.getElementById("bigPic").src = eve.target.src;
+            eve.stopPropagation() // 阻止事件继续向上传递【冒泡】
+        }
+
+     var newImg = document.createElement("img");
+     newImg.src = "img/05.jpg";
+      document.getElementById("other").appendChild(newImg);
+    // newImg.onclick = function(eve){
+    //     alert("A pen for you");
+    //     eve.stopPropagation();
+    // }
+    // document.getElementById("other").appendChild(newImg);
+
+    document.addEventListener("click",newfun,false);
+
+    function newfun(eve){
+        if(eve.target.src && eve.target.src.indexOf("05")){
+            alert("haha");
+        }
+        eve.stopPropagation();
+    }
+
+
+</script>
+
+</body>
+</html>

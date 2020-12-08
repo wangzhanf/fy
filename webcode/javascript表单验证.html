@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        input,div{
+            display: block;
+            margin: 15px;
+        }
+        div{
+            height: 1em;
+        }
+        .error{
+            color: red;
+        }
+        .success{
+            color: green;
+        }
+    </style>
+</head>
+<body>
+
+    <form id="myform" method="get" action="优先级.html">
+        <input type="text" name="username" id="username" placeholder="请输入用户名" />
+        <div id="usernameTips"></div>
+        <input type="password" name="passwd"  id="passwd" placeholder="请输入密码" />
+        <div id="passwdTips"></div>
+        <input type="text" name="phone" id="phone" placeholder="输入手机号码" />
+        <div id="phoneTips"></div>
+        <input type="submit" value="注册新用户" />
+    </form>
+
+<script>
+    //1 获取需要处理的对象
+    var oForm = document.getElementById("myform");
+    var oUser = document.getElementById("username");
+    var oUserTips = document.getElementById("usernameTips");
+    var oPass = document.getElementById("passwd");
+    var oPasswdTips = document.getElementById("passwdTips");
+
+    //2 给对象绑定事件
+    oUser.onblur = checkUser;   //事件的绑定
+    oPass.onkeyup = checkPass;
+    oForm.onsubmit = checkForm;
+
+    //3 定义函数
+    function checkPass(eve){
+        // alert("haha");
+        var sPass = oPass.value;
+        if(sPass.length > 6){
+            oPasswdTips.innerText = "密码合法";
+            oPasswdTips.setAttribute("class","success");
+            return 99;
+        }else{
+            oPasswdTips.innerText = "密码不正确";
+            oPasswdTips.setAttribute("class","error");
+            return 0;
+        }
+    }
+
+    function checkUser(eve) {
+        // alert("haha");
+        //3.1   首先获得输入的内容
+        var sUser = oUser.value;
+        // var sUser = eve.target.value;
+        // console.log(sUser.length);
+        //3.2   业务逻辑
+        var rPat = new RegExp("[a-z]{5,8}","ig");
+
+        // if(sUser.length <5 || sUser.length > 8){
+        if(!rPat.test(sUser)){
+            oUserTips.innerText = "用户名必须是5-8个字符";
+            oUserTips.setAttribute("class","error");
+            return 0;
+        }else{
+            oUserTips.innerText = "恭喜您，该用户名可用";
+            oUserTips.setAttribute("class","success");
+            return 99;
+        }
+    }
+    //校验整个表单数据
+    function checkForm(eve) {
+        if(checkUser() && checkPass()){
+            alert("检查通过");
+        }else{//表单有错误，停止提交
+            alert("表单有错误");
+            //return false;//阻止默认行为
+            eve.preventDefault();//阻止默认行为
+        }
+    }
+
+
+
+
+</script>
+</body>
+</html>

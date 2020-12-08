@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .error{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h2 class="myTitle">这是新的标题2</h2>
+    <h1>
+        这是标题1
+    </h1>
+    <h2 class="myTitle">这是标题2</h2>
+    <ul id="myList">
+        <!--        <li>list4</li>-->
+        <li>list1</li>
+        <li>list2</li>
+        <li>list3</li>
+<!--        <li>list4</li>-->
+    </ul>
+
+<script>
+
+    //第一版标准编程模式
+    window.onload = function(eve){ //DOM准备完毕并且所有的资源加载完毕时执行
+        // if(!(oUl = document.getElementById("myList"))) return false;
+        //
+        // //对象检测技术，如果调用的对象不存在，则退出程序，防止对后续的程序造成影响（阻塞式加载）
+        // console.log(oUl.toString());
+
+        // var oH1 = document.getElementsByTagName("h2")[0];
+        // console.log(oH1.innerText);
+
+        // var oH2s = document.querySelectorAll(".myTitle");
+        // console.log(oH2s.length);
+        // console.log(oH2s[1].innerHTML);
+
+        // var oLi = document.querySelector("#myList>li:nth-child(2)");
+        // console.log(oLi.innerText = "list200");
+
+        //添加一个list4，将文字颜色设置为红色,插入到底2个li节点之后
+        var oLi = document.createElement("li");//创建元素节点，此时它是碎片
+        oLi.setAttribute("class","error");//设置属性节点
+        var oText = document.createTextNode("list4");//创建文本节点，此时它是碎片
+        oLi.appendChild(oText);//将文本节点追加到元素节点中
+
+        var oUl = document.querySelector("#myList");//获取
+        // oUl.appendChild(oLi);
+        // oUl.prepend(oLi);
+        var oRef = document.querySelector("#myList>li:last-child");
+        // oUl.insertBefore(oLi,oRef);//插入到倒数第2位   //  思考一下如何实现在参考节点之后插入新节点
+        oUl.insertBefore(oLi,oUl.lastElementChild);//插入到倒数第2位   //  思考一下如何实现在参考节点之后插入新节点
+        console.log(oLi.getAttribute("class"));
+
+        //删除节点
+        // oUl.empty();    //主要用于清空表单数据
+        // oUl.removeXXXXX //删除指点的节点
+
+    }
+
+</script>
+</body>
+</html>
