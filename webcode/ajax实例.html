@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<input id="uList" list="udList" type="text" placeholder="国家列表"/>
+<datalist id="udList">
+    <option>请选择国家</option>
+</datalist>
+<input id="cList" list="cdList" type="text" placeholder="城市列表"/>
+<datalist id="cdList">
+    <option>请选择城市</option>
+</datalist>
+
+<script>
+    //页面加载时将国家列表填充到下拉菜单中
+    addOnloadEvent(fillUList);
+    addOnloadEvent(bindEvent);
+
+
+    function bindEvent() {
+        if(!(oCl = document.getElementById("cList"))) return false;//对象检测
+        addEventListener("change",fillCList,true);
+    }
+
+    function fillCList() {
+        // alert("123");
+        //循环遍历填充到列表
+        var oUd = document.getElementById("cdList");
+        oUd.remove();
+        // // oUd.empty();//清空列表,清空表单字段
+        // // oUd.remove();//清空列表，删除当前节点
+        // var cNodes = oUd.children;
+        // // alert(cNodes.length);
+        // var len = cNodes.length;
+        // console.log(len);
+        // for (let i = len; i >=0; i--) {
+        //     // console.log(cNodes.length);
+        //     console.log(cNodes.childElementCount);
+        //     cNodes[i].remove();
+        // }
+
+        //1 首先需要创建XMLHTTPREQUEST对象，建议通过函数方式获得
+        var xmlhttp = createXHR();  //通过抽象为函数的方式获取对象
+        //2 绑定xhr的打开链接以及方式,调用open方法
+        var sC = document.getElementById("uList").value;
+        xmlhttp.open("GET","http://localhost:63342/webcode/data/"+sC+".txt",true);
+        //3 发送请求 ，调用send方法
+        xmlhttp.send();
+        //4 绑定事件，当服务器回应的时候触发回调函数
+        xmlhttp.onreadystatechange = function (eve) {
+            if(xmlhttp.readyState === 4 && xmlhttp.status === 200){
+                //alert(xmlhttp.responseText);
+                //获取响应的数据
+                var sLists =  xmlhttp.responseText;
+                //转换为数组
+                var aLists = sLists.split(",");
+                var oD = document.createElement("datalist");
+                oD.setAttribute("id","cdList");
+                for (let i = 0; i < aLists.length; i++) {
+
+                    var oOpt = document.createElement("option");
+                    oOpt.innerText= aLists[i];
+                    oD.appendChild(oOpt);
+                    document.getElementsByTagName("body")[0].appendChild(oD);
+                }
+            }
+        }
+    }
+
+    function fillUList(){
+        //1 首先需要创建XMLHTTPREQUEST对象，建议通过函数方式获得
+        var xmlhttp = createXHR();  //通过抽象为函数的方式获取对象
+        //2 绑定xhr的打开链接以及方式,调用open方法
+        xmlhttp.open("GET","http://localhost:63342/webcode/data/u.txt",true);
+        //3 发送请求 ，调用send方法
+        xmlhttp.send();
+        //4 绑定事件，当服务器回应的时候触发回调函数
+        xmlhttp.onreadystatechange = function (eve) {
+            if(xmlhttp.readyState === 4 && xmlhttp.status === 200){
+                //alert(xmlhttp.responseText);
+                //获取响应的数据
+                var sLists =  xmlhttp.responseText;
+                //转换为数组
+                var aLists = sLists.split(",");
+                //循环遍历填充到列表
+                var oUd = document.getElementById("udList");
+                for (let i = 0; i < aLists.length; i++) {
+                    var oOpt = document.createElement("option");
+                    oOpt.innerText= aLists[i];
+                    oUd.appendChild(oOpt);
+                }
+            }
+        }
+    }
+    //onload事件的动态加载函数
+    function addOnloadEvent(func) {
+        //首先应该先获得当前的window.onload
+        var oldLoad = window.onload;
+        // console.log(typeof oldLoad);
+        if ((typeof oldLoad) == 'Function') {
+            window.onload = function () {
+                oldLoad();
+                func();
+            }
+        } else {
+            func();
+        }
+    }
+    function createXHR() {
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        return xmlhttp;
+    }
+
+</script>
+</body>
+</html>

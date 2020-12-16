@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--vue监控处理的区域-->
+<div id="app">
+    {{msg}}
+</div>
+
+<script src="js/vue.js"></script>
+<script>
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            msg: "这是第一个vue项目"
+        }
+    });
+</script>
+</body>
+</html>

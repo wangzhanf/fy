@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .err{
+            color: red;
+        }
+        .succ{
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <input type="text" id="username" name="username" placeholder="请输入用户名" />
+        <div id="tips"></div>
+    </form>
+<script src="js/jquery-3.3.1.js"></script>
+<script>
+    $(document).ready(function () {
+        //给文本输入框绑定事件
+        $("#username").keyup(function (eve) {
+            //对用户名进行校验 5-10位字符，客户端判断即可
+            var rUser = new RegExp("^[a-z]{5,10}$","ig");
+            var sUser = $(this).val();
+            if(!rUser.test(sUser)){//测试不通过
+                //修改提示消息
+                $("#tips").text("用户名必须是5-10位的英文字符").addClass("err").removeClass("succ");
+                return ;
+            }
+            //客户端测试通过，向服务器提交ajax请求
+            $.get("http://localhost:63342/webcode/data/user.txt",function (data) {
+                 var sUserList = data.split(",");
+                 //遍历匹配
+                for (let i = 0; i < sUserList.length; i++) {
+                    if(sUser == sUserList[i]){
+                        $("#tips").text("用户名"+sUser +"已被占用").addClass("err").removeClass("succ");
+                    }else{
+                        $("#tips").text("恭喜你，"+sUser+"可用").addClass("succ").removeClass("err");
+                    }
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

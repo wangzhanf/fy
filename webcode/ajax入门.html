@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="dis"></div>
+<script>
+    //1 首先需要创建XMLHTTPREQUEST对象，建议通过函数方式获得
+    var xmlhttp = createXHR();  //通过抽象为函数的方式获取对象
+    //2 绑定xhr的打开链接以及方式,调用open方法
+    xmlhttp.open("GET","http://localhost:63342/webcode/data/info.txt",true);
+    //3 发送请求 ，调用send方法
+    xmlhttp.send();
+    //4 绑定事件，当服务器回应的时候触发回调函数
+    xmlhttp.onreadystatechange = process;
+
+    //事件函数的编写，状态检测，响应的处理
+    function process() {
+        if(xmlhttp.readyState === 3){
+            alert("服务器正在处理中,请稍后");//处理动画
+        }
+        // if(xmlhttp.status != 200){
+        //     alert("访问资源错误，请查实后重试");//
+        // }
+        if(xmlhttp.readyState === 4 && xmlhttp.status == 200){
+            console.log("恭喜你，系统可用");
+            document.getElementById("dis").innerText = xmlhttp.responseText;
+        }
+    }
+
+
+    function createXHR() {
+        if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+            xmlhttp = new XMLHttpRequest();
+        } else {// code for IE6, IE5
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        return xmlhttp;
+    }
+
+</script>
+</body>
+</html>

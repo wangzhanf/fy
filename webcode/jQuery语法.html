@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li>list1</li>
+    <li>list2</li>
+    <li>list3</li>
+</ul>
+
+
+<script src="js/jquery-3.3.1.js"></script>
+<script>
+    // $("") ====  jQuery（""）
+    //onload 资源已加载（图片以及源码）
+    // window.onload = function() {
+    //     alert("图片已加载");
+    // }
+
+    //一般建议:所有的jQuery代码都应该写在如下的框架内
+    //源码读取完毕后，DOM对象构建完毕即执行
+    $(document).ready(function(){
+        $("li").click(function (eve) {
+            $(this).css("color","red").slideUp(3000);
+        });
+
+
+    });
+
+    //如果动态增加的元素,不能直接绑定事件,需要使用事件委托的方式
+    //原生中通过     addEventListern()解决
+    //jQuery中       on方法绑定
+
+    //简写
+    // $(function(){
+    //
+    // });
+</script>
+
+<img />
+</body>
+</html>

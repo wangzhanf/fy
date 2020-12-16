@@ -163,10 +163,10 @@ aside  a:active{
 /*否定伪类选择器*/
 /*案例：表格数据的第2列文字为3倍大小，其他列文字为1.5倍大小*/
 /*.mytab>tbody>tr>td{
-    font-size: 1.5em;
+    fonts-size: 1.5em;
 }
 .mytab>tbody>tr>td:nth-child(2){
-    font-size: 1em;
+    fonts-size: 1em;
 }*/
 .mytab>tbody>tr>td:not(:nth-child(2)){
     font-size: 1.5em;

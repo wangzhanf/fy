@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>家庭网关</title>
+</head>
+<body>
+<!--    插入4张缩略图-->
+<!--img标签可以插入图片，网页中支持的图片格式  jpg   png     gif-->
+<!--图片等资源不是内嵌到页面中的，是通过引用的方式映射过来的
+    通过src属性引入
+    可以给元素添加超链接，请求新的资源   ，  超链接的标签是  a
+    超链接的常见属性
+            href   指定链接的资源
+            target  指定对应资源打开的方式
+    内部框架标签：  iframe    在一个页面中组织多个页面的展示
+-->
+<iframe frameborder="0" scrolling="no" width="800" height="600" name="photo" src="https://www.baidu.com">您的浏览器不支持内部框架</iframe>
+<a href="img/01.jpg" target="photo">
+    <img src="img/01.jpg" width="160" height="120"/>
+</a>
+<a href="img/02.jpg" target="photo">
+    <img src="img/02.jpg" width="160" height="120"/>
+</a>
+<a href="img/03.jpg" target="photo">
+    <img src="img/03.jpg" width="160" height="120"/>
+</a>
+<a href="img/04.jpg" target="photo">
+    <img src="img/04.jpg" width="160" height="120"/>
+</a>
+</body>
+</html>

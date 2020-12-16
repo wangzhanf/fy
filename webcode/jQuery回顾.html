@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form>
+    <input type="text" id="in"/>
+</form>
+<div id="out"></div>
+
+<script src="js/jquery-3.3.1.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#in").keyup(function (eve) {
+            $("#out").text(this.val());
+            $("form").get(0).reset;
+        });
+    });
+</script>
+
+<script>
+    // addOnloadEvent(bindEvent);
+    //
+    // function bindEvent() {
+    //     if(!document.getElementById("in")) return false;
+    //     if(!document.getElementById("out")) return false;
+    //     document.getElementById("in").onkeyup = changeValue;
+    // }
+    //
+    // function changeValue() {
+    //     //业务逻辑
+    // }
+    //
+    // //onload事件的动态加载函数
+    // function addOnloadEvent(func) {
+    //     //首先应该先获得当前的window.onload
+    //     var oldLoad = window.onload;
+    //     // console.log(typeof oldLoad);
+    //     if ((typeof oldLoad) == 'Function') {
+    //         window.onload = function () {
+    //             oldLoad();
+    //             func();
+    //         }
+    //     } else {
+    //         func();
+    //     }
+    // }
+</script>
+</body>
+</html>
