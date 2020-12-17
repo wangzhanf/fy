@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+    <style type="text/css">
+        .zone{
+            width: 100px;
+            height: 100px;
+            /*background-color: green;*/
+        }
+        .red{
+            background-color: orangered;
+        }
+    </style>
+</head>
+<body>
+
+<div id="myapp">
+    <button v-on:click="show">显示</button>
+    <button v-on:click="hide">隐藏</button>
+    <button v-on:click="toggle">切换</button>
+    <div v-if="isShow">
+        <div class="zone" v-bind:class="{red:isError}"></div>
+        <img src="img/01.jpg" width="400" height="300" v-bind:src="imgUrl" />
+    </div>
+</div>
+<script>
+
+    const vm = new Vue({
+        el: '#myapp',
+        data: {
+            isShow: true,
+            imgUrl: 'img/02.jpg',
+            isError: false
+        },
+        methods: {
+            show:function () {
+                this.isShow = true;
+                return this.isShow;
+            },
+            hide:function () {
+                this.isShow = false;
+                return this.isShow;
+            },
+            toggle:function () {
+                this.isShow = !this.isShow;
+                return this.isShow;
+            }
+        }
+    });
+</script>
+</body>
+</html>

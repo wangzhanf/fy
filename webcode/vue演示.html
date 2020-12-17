@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+
+</head>
+<body>
+<div id="app">
+    <pre>
+        离离原上草，
+        一岁一枯荣。
+    </pre>
+    <p v-pre>vue中元素内容使用mustache语法表示，例如{{变量名}}</p>
+    <h1 v-once>幸运数字是：{{luckNum}}</h1>
+    <button v-on:click="guess">猜数[{{count}}]</button>
+</div>
+<script>
+    const vm = new Vue({
+        el:'#app',
+        data:{
+            luckNum : 8,
+            count: 0
+        },
+        methods : {
+            guess : function () {
+                this.count++;//计数器自增
+                let iRand = Math.floor(Math.random() * 10);
+                console.log(iRand);
+                if(iRand == this.luckNum){
+                    alert("恭喜");
+                }
+            }
+        }
+    });
+</script>
+</body>
+</html>

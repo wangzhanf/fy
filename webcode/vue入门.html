@@ -3,21 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style type="text/css">
+        [v-cloak]{
+            display: none;
+        }
+    </style>
 </head>
 <body>
 <!--vue监控处理的区域-->
+<!--view角色-->
 <div id="app">
     {{msg}}
+    {{msg}} + {{ab}}
+    {{msg + ab}}
+    {{url}}
+    <p v-text="url"></p>
+    <p v-html="url" v-cloak></p>
+<!--    <button onclick="fun1();">这是按钮</button>-->
+<!--    <button v-on:click>这是按钮</button>-->
+    <button @click="func1">这是按钮</button>
+    {{count}}
+
+    <button v-on:click="loginCheck">登录</button>
+    <div>
+        <div v-if="login">
+            欢迎您
+        </div>
+        <div v-else>
+            请先登录
+        </div>
+    </div>
+
 </div>
 
 <script src="js/vue.js"></script>
 <script>
+    /*Model角色*/
+    var mydata = {//数据区
+        msg: "这是第一个vue项目",
+        ab: "hello",
+        url: '<a href="https://www.baidu.com">百度</a>',
+        count: 0,
+        login: false  //代表当前用户是否登录
+    }
+    //vm实例就是vue的根实例root
+    /*vm角色，viewModel角色*/
     const vm = new Vue({
-        el: '#app',
-        data: {
-            msg: "这是第一个vue项目"
+        el: '#app',//设置当前实例的监听区域，选择器匹配
+        data: mydata,
+        methods:{
+            func1 : function(){
+                this.count++;
+            },
+            loginCheck : function () {
+                this.login = !this.login;
+            }
         }
     });
+
+
+
 </script>
 </body>
 </html>

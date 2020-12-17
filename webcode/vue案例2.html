@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+    <style type="text/css">
+        #zone{
+            width: 100px;
+            height: 100px;
+        }
+        .level1{
+            background-color: blueviolet;
+            transition: all 300ms ease-in 20ms;
+        }
+        .level2{
+            background-color: orangered;
+            transition: all 300ms ease-in 20ms;
+        }
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <button v-on:click="add">添加</button>
+    <button v-on:click="remove">删除</button>
+    <button v-on:click="toggle">切换</button>
+
+    <div id="zone" class="level1" v-bind:class="{level2:isCurr}"></div>
+</div>
+<script>
+    const vm = new Vue({
+        el:'#app',
+        data:{
+            isCurr:false
+        },
+        methods : {
+            add:function(){
+                this.isCurr = true;
+            },
+            remove:function(){
+                this.isCurr = false;
+            },
+            toggle:function(){
+                this.isCurr = !this.isCurr;
+            }
+        }
+    });
+</script>
+</body>
+</html>
