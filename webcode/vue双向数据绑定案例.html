@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+    <style type="text/css">
+
+    </style>
+
+</head>
+<body>
+<div id="app">
+    <textarea v-model="msg"></textarea>
+    <button v-on:click="pub">发布</button>
+    <ul>
+        <li v-for="(value,index) in infos">
+            {{value}}
+            <span v-on:click="del(index)">删除</span>
+        </li>
+    </ul>
+</div>
+<script>
+    const vm = new Vue({
+        el:'#app',
+        data:{
+            msg: "",
+            infos:[]
+        },
+        methods : {
+            pub:function () {
+                this.infos.push(this.msg);
+            },
+            del(index) {
+                this.infos.splice(index,1);
+            }
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+    <style type="text/css">
+        .success{
+            color: #1c7430;
+        }
+    </style>
+
+</head>
+<body>
+<div id="app">
+    <input type="number" v-model.lazy.number="count" placeholder="请输入商品数量" /> 商品单价：{{price}}
+    <br />
+    <h3>商品总价格为：<span>{{price*count}}</span></h3>
+</div>
+<script>
+    const vm = new Vue({
+        el:'#app',
+        data:{
+            price : 20,
+            count: 0
+        },
+        methods : {
+
+        }
+    });
+</script>
+</body>
+</html>

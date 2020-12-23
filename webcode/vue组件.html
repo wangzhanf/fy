@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+
+</head>
+<body>
+<div id="app">
+    <!--3 使用组件-->
+    <top>
+        <h5 slot="one">这是第一个槽的实际内容</h5>
+        <h6 slot="two">这是第2个槽的实际内容</h6>
+    </top>
+    <top>
+        <img slot="one" src="img/01.jpg" />
+        <p slot="two">这是一个段落</p>
+    </top>
+
+</div>
+
+<template id="firstT">
+    <div>
+<!--        匿名槽，一个组件只能有一个匿名槽-->
+<!--        <slot></slot>-->
+        <h3 v-on:click="fun1">这是组件的标题</h3>
+<!--        第一个命名槽-->
+        <slot name="one"></slot>
+        <h4>{{msg}}</h4>
+        <!--        第二个命名槽-->
+        <slot name="two"></slot>
+        <p class="red">这是组件的内容</p>
+    </div>
+</template>
+<script>
+    //创建可复用的组件的过程
+    //1创建组件
+    var firstcpn = Vue.extend({
+        //1 组件的模板
+        // template : "<h3>这是组件的标题</h3><p class="red">这是组件的内容</p>"
+        /*2
+        template: '<h3>这是组件的标题</h3>' +
+            '<p class="red">这是组件的内容</p>'
+       */
+        //3 反向单引号，模板语法
+        /*
+        template : `
+        <h3>这是组件的标题</h3>
+        <p class="red">这是组件的内容</p>
+        `
+        */
+        //4 使用模板语法
+        template: '#firstT', //使用静态的模板区域
+        /*错误的写法*/
+        /*data : {
+            lists：【】
+        }*/
+        data : function(){
+            return {
+                lists:[],
+                msg:"消息",
+                student:{
+                    name:"zs",
+                    age:18
+                }
+            }
+        },
+        methods:{
+            fun1:function(){
+                alert('这是组件中的方法');
+            }
+        }
+    });
+
+    //2 注册组件
+    Vue.component('top',firstcpn);//注册为全局组件
+
+    //vue的实例， 也叫root实例，根实例，也是一个组件
+    const vm = new Vue({
+        el:'#app',
+        data:{
+            a:1,
+            b:"123"
+        },
+        methods : {
+
+        },
+        components: {
+            //localFirst : firstcpn   //注册为局部组件
+        }
+    });
+</script>
+</body>
+</html>

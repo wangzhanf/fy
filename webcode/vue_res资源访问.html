@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--vue的引用要在vue-resource之前-->
+    <script src="js/vue.js"></script>
+    <script src="js/vue-resource.js"></script>
+</head>
+<body>
+<div id="app">
+    <ul>
+        <li v-for="(item,index) in lists">{{index}}--{{item}}</li>
+    </ul>
+</div>
+<script>
+
+
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            lists:["暂时没有数据"]
+        },
+        mounted : function(){
+            this.$http.get('http://localhost:63342/webcode/data/svrdata.json').then(
+                function(res){
+                    // alert("成功");
+                    this.lists = res.body;
+                },
+                function(){
+                    alert("网络请求失败请重试");
+                }
+            );
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="myapp">
+    <h2>单价：{{price}}</h2>
+    <input type="number" v-model="count" />
+    <h2>合计： {{price * count}}</h2>
+    <button v-on:click="sum">计算折后价</button>
+    <h2>合计： {{total}}</h2>
+
+    <h1>计算属性{{zonghe}}</h1>
+</div>
+
+
+<script>
+
+    // alert("haha");
+
+    // 创建vue实例，相当于创建了一个root组件
+    const vm = new Vue({
+        el: '#myapp',
+        data:{
+            price : 20,
+            count: 0,
+            total:0
+        },
+        methods:{
+            sum:function () {
+                if(this.count > 2){
+                    this.total = this.price * this.count * 0.8;
+                }else{
+                    this.total = this.price * this.count;
+                }
+            }
+        },
+        computed:{
+            zonghe:function(){
+                if(this.count > 2){
+                    this.total = this.price * this.count * 0.8;
+                }else{
+                    this.total = this.price * this.count;
+                }
+                return this.total;
+            }
+        },
+        components : {
+
+        },
+        mounted:function(){
+            //当一个组件被挂载到虚拟DOM时需要执行的工作：    访问网络得到数据
+            // alert("haha");
+
+            //1 创建 xhr对象，2绑定，3发送，4绑定回调函数5，回调函数的业务处理
+            // $.get("url",function(data){
+            //
+            // });
+        }
+    });
+</script>
+</body>
+</html>

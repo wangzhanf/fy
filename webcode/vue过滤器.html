@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+    <style type="text/css">
+
+    </style>
+
+</head>
+<body>
+<div id="app">
+    <h3>单价：{{price | moneyFmt('$')}}</h3>
+    <h3>总价：{{total | moneyFmt}}</h3>
+    <h3>当前日期：{{currentDate | dateFmt('/')}}</h3>
+</div>
+<script>
+    //定义一个全局过滤器
+    Vue.filter('moneyFmt',function(con,sperator){
+        //默认第一个参数是管道符 | 左侧的结果
+        if(!sperator){
+            sperator = '￥';
+        }
+        return sperator + " " + con.toFixed(2);
+    });
+
+    const vm = new Vue({
+        el:'#app',
+        data:{
+            price: 20,
+            total: 80,
+            currentDate: new Date()
+        },
+        methods : {
+
+        },
+        filters:{
+            dateFmt:function(input,splicchar){
+                if(!splicchar){
+                    splicchar = '-';
+                }
+                var date = new Date(input);
+                var year = date.getFullYear();
+                var m = date.getMonth() + 1;
+                var d = date.getDate();
+                var fmtStr = year+splicchar+m +splicchar+d;
+                return fmtStr; //返回输出结果
+            }
+
+        }
+    });
+</script>
+</body>
+</html>

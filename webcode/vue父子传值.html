@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="myapp">
+    <h1>{{child}}</h1>
+    <one v-bind:from-parent="info" v-on:get="dosome"></one>
+</div>
+
+<template id="oneTem">
+    <div>
+        <h1>这是一个子组件</h1>
+        <h2>{{fromParent}}</h2>
+        <h3>{{subvar}}</h3>
+        <h3>通过$root拿到父组件的值：{{rootvar}}</h3>
+        <button v-on:click="send">传递数据给父组件</button>
+        <button v-on:click="ch">更改根组件的内容</button>
+    </div>
+</template>
+<script>
+
+    //创建组件
+    var onecpn = Vue.extend({
+        template: '#oneTem',
+        props:['fromParent'],
+        data : function(){
+            return {
+                subvar : '鱼香肉丝',
+                // rootvar: this.$root.info
+                rootvar: this.$parent.info
+            }
+        },
+        methods:{
+            send : function () {
+                this.$emit('get',this.subvar);
+            },
+            ch:function(){
+                this.$root.info = "子组件改动了的值";
+            }
+        }
+    });
+
+    // 创建vue实例，相当于创建了一个root组件
+    const vm = new Vue({
+        el: '#myapp',
+        data:{
+            info:'这是父组件的变量',
+            child:'原始的内容'
+        },
+        methods:{
+            dosome: function (str) {
+                // alert("haha");
+                this.child = "做好了" + str;
+            }
+        },
+        components : {
+            one : onecpn,//注册为局部组件
+
+        }
+    });
+</script>
+</body>
+</html>
